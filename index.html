@@ -1,13 +1,140 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>travel-app</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Roamly | Welcome</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="auth-page">
+
+        <section class="auth-card">
+
+            <div class="logo">
+                Roamly
+            </div>
+
+           
+<div class="welcome-text" id="welcome-text">
+    <h1 id="form-title">Welcome back.</h1>
+    <p id="form-subtitle">Sign in and get back to exploring.</p>
+</div>
+
+<!-- LOGIN FORM -->
+<form class="login-form" id="login-form">
+
+    <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email"
+            placeholder="you@example.com" required>
+    </div>
+
+    <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password"
+            placeholder="Enter your password" required>
+    </div>
+
+    <button type="submit" class="login-button">
+        Sign in
+    </button>
+
+</form>
+
+<!-- SIGN UP FORM -->
+<form class="login-form" id="signup-form" hidden>
+
+    <div class="input-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname"
+            placeholder="Your name" required>
+    </div>
+
+    <div class="input-group">
+        <label for="signup-email">Email</label>
+        <input type="email" id="signup-email"
+            placeholder="you@example.com" required>
+    </div>
+
+    <div class="input-group">
+        <label for="signup-password">Password</label>
+        <input type="password" id="signup-password"
+            placeholder="Create a password" required>
+    </div>
+
+    <button type="submit" class="login-button">
+        Create account
+    </button>
+
+</form>
+
+<p class="signup-text" id="switch-text">
+    Don't have an account?
+    <a href="#" id="switch-link">Create one</a>
+</p>
+
+        </section>
+
+    </main>
+
+<script>
+
+    const loginForm = document.getElementById("login-form");
+    const signupForm = document.getElementById("signup-form");
+
+    const formTitle = document.getElementById("form-title");
+    const formSubtitle = document.getElementById("form-subtitle");
+
+    const switchText = document.getElementById("switch-text");
+
+    switchText.addEventListener("click", function(event) {
+
+        if (event.target.tagName !== "A") return;
+
+        event.preventDefault();
+        const authCard = document.querySelector(".auth-card");
+
+        authCard.classList.remove("form-transition");
+
+        // Restart the animation
+        void authCard.offsetWidth;
+
+        const isLoginVisible = !loginForm.hidden;
+
+        loginForm.hidden = isLoginVisible;
+        signupForm.hidden = !isLoginVisible;
+
+        if (isLoginVisible) {
+
+            formTitle.innerText = "Create account.";
+            formSubtitle.innerText =
+                "Start your next adventure with us.";
+
+            switchText.innerHTML =
+                'Already have an account? <a href="#">Sign in</a>';
+
+        } else {
+
+            formTitle.innerText = "Welcome back.";
+            formSubtitle.innerText =
+                "Sign in and get back to exploring.";
+
+            switchText.innerHTML =
+                'Don\'t have an account? <a href="#">Create one</a>';
+
+        }
+        authCard.classList.add("form-transition");
+
+    });
+
+</script>
+
+</body>
+
 </html>
