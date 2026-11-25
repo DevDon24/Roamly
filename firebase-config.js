@@ -5,12 +5,12 @@ import { getAuth } from
   "https://www.gstatic.com/firebasejs/13.4.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyB9fQsXKCp_WjETbF9zlHt7Ce9BZOsHaLY"
+  authDomain: "roamly-44000.firebaseapp.com",
+  projectId:  "roamly-44000",
+  storageBucket: "roamly-44000.firebasestorage.app",
+  messagingSenderId: "468259021940",
+  appId: "G-ZEBE6JZT7G" 
 };
 
 const app = initializeApp(firebaseConfig);
